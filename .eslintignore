@@ -1,0 +1,6 @@
+build/
+components/
+coverage/
+build.js
+attach-ware.js
+attach-ware.min.js
