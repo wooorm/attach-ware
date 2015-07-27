@@ -1,6 +1,6 @@
 {
   "name": "attach-ware",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Middleware with configuration",
   "license": "MIT",
   "keywords": [
