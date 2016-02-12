@@ -1,10 +1,6 @@
 .DS_Store
 *.log
-bower_components/
-build/
-components/
 node_modules/
 coverage/
-build.js
 attach-ware.js
 attach-ware.min.js

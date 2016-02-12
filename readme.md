@@ -10,10 +10,8 @@ Middleware with configuration.
 npm install attach-ware
 ```
 
-**attach-ware** is also available for [bower](http://bower.io/#install-packages),
-[component](https://github.com/componentjs/component), and [duo](http://duojs.org/#getting-started),
-and as an AMD, CommonJS, and globals module, [uncompressed](attach-ware.js) and
-[compressed](attach-ware.min.js).
+**attach-ware** is also available as an AMD, CommonJS, and globals
+module, [uncompressed and compressed](https://github.com/wooorm/attach-ware/releases)
 
 ## Usage
 
