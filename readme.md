@@ -1,17 +1,17 @@
-# attach-ware [![Build Status](https://img.shields.io/travis/wooorm/attach-ware.svg)](https://travis-ci.org/wooorm/attach-ware) [![Coverage Status](https://img.shields.io/codecov/c/github/wooorm/attach-ware.svg)](https://codecov.io/github/wooorm/attach-ware)
+# attach-ware [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
 
 Middleware with configuration.
 
 ## Installation
 
-[npm](https://docs.npmjs.com/cli/install):
+[npm][npm-install]:
 
 ```bash
 npm install attach-ware
 ```
 
 **attach-ware** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed](https://github.com/wooorm/attach-ware/releases)
+module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -59,30 +59,61 @@ var middleware = attachWare()
 
 ## API
 
-> **Note**: first create a new constructor (later called `AttachWare`)
-> by passing `ware` to the by this module exposed function. This
-> enables ware-like libraries to be used too.
+### `AttachWare = attachWare(Ware)`
 
-### new AttachWare()
+Create a new `AttachWare` based on the given middleware constructor.
 
-Create configurable middleware. Works just like [`ware()`](https://github.com/segmentio/ware#ware-1).
+**Parameters**:
 
-### AttachWare#use(attach, input...)
+*   `Ware` ([`Ware`][ware]).
 
-Invokes `attach` with either `attachWare.context` or `attachWare`,
-and all `input`.
+**Returns**: `Function`.
+
+### `AttachWare()`
+
+Create configurable middleware.  Works just like the given
+[`Ware`][ware].
+
+### `AttachWare#use(attach[, input...])`
+
+Invokes `attach` with [`context`][context] and all `input`.
 
 If `attach` returns another function (`fn`, which can be synchronous,
 asynchronous, or a generator function), that function is [added to the
-middleware](https://github.com/segmentio/ware#usefn), and will be invoked when
-[`run()`](https://github.com/segmentio/ware#runinput-callback) is invoked
-like normal middleware.
+middleware][ware-use], and will be invoked when [`run()`][ware-run] is
+invoked like normal middleware.
 
-### AttachWare#context
+### `AttachWare#context`
 
-The first argument for `attach`ers. When this is falsey, `attachWare`
+The first argument for `attach`ers. When this is falsey, the instance
 itself is used.
 
 ## License
 
-[MIT](LICENSE) © [Titus Wormer](http://wooorm.com)
+[MIT][license] © [Titus Wormer][author]
+
+<!-- Definitions -->
+
+[travis-badge]: https://img.shields.io/travis/wooorm/attach-ware.svg
+
+[travis]: https://travis-ci.org/wooorm/attach-ware
+
+[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/attach-ware.svg
+
+[codecov]: https://codecov.io/github/wooorm/attach-ware
+
+[npm-install]: https://docs.npmjs.com/cli/install
+
+[releases]: https://github.com/wooorm/attach-ware/releases
+
+[license]: LICENSE
+
+[author]: http://wooorm.com
+
+[ware]: https://github.com/segmentio/ware#ware-1
+
+[ware-use]: https://github.com/segmentio/ware#usefn
+
+[ware-run]: https://github.com/segmentio/ware#runinput-callback
+
+[context]: #attachwarecontext
