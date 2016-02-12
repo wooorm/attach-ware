@@ -29,49 +29,69 @@ test('AttachWare()', function (t) {
         st.end();
     });
 
+    t.test('should accept a `list`', function (st) {
+        var ware = new AttachWare();
+
+        st.plan(3);
+
+        ware.use([function (context, $0, $1) {
+            st.equal(context, ware);
+            st.equal($0, 0);
+            st.equal($1, 1);
+        }, 0, 1]);
+    });
+
+    t.test('should accept a `list` without input', function (st) {
+        var ware = new AttachWare();
+
+        st.plan(2);
+
+        ware.use([function (context, $0) {
+            st.equal(context, ware);
+            st.equal($0, undefined);
+        }]);
+    });
+
+    t.test('should accept a `matrix`', function (st) {
+        var ware = new AttachWare();
+
+        st.plan(3);
+
+        ware.use([[function (context, $0, $1) {
+            st.equal(context, ware);
+            st.equal($0, 0);
+            st.equal($1, 1);
+        }, 0, 1]]);
+    });
+
+    t.test('should accept a `matrix` without input', function (st) {
+        var ware = new AttachWare();
+
+        st.plan(2);
+
+        ware.use([[function (context, $0) {
+            st.equal(context, ware);
+            st.equal($0, undefined);
+        }]]);
+    });
+
+    t.test('should accept `attachers`', function (st) {
+        var ware = new AttachWare();
+
+        st.plan(3);
+
+        ware.use([function (context, $0, $1) {
+            st.equal(context, ware);
+            st.equal($0, 0);
+            st.equal($1, 1);
+        }], 0, 1);
+    });
+
     t.test('should accept multiple attachers', function (st) {
         var ware = new AttachWare().use([noop, noop]);
 
         st.equal(ware.attachers.length, 2);
         st.equal(ware.fns.length, 0);
-
-        st.end();
-    });
-
-    t.test('should accept empty attach-ware', function (st) {
-        var ware = new AttachWare().use(new AttachWare());
-
-        st.equal(ware.attachers, undefined);
-        st.equal(ware.fns.length, 0);
-
-        st.end();
-    });
-
-    t.test('should accept attach-ware', function (st) {
-        var ware = new AttachWare().use(
-            new AttachWare().use([noop, noop])
-        );
-
-        st.equal(ware.attachers.length, 2);
-        st.equal(ware.fns.length, 0);
-
-        st.end();
-    });
-
-    t.test('should accept empty normal ware', function (st) {
-        var ware = new AttachWare().use(new Ware());
-
-        st.equal(ware.attachers, undefined);
-        st.equal(ware.fns.length, 0);
-
-        st.end();
-    });
-
-    t.test('should accept normal ware', function (st) {
-        var ware = new AttachWare().use(new Ware().use([noop, noop]));
-
-        st.equal(ware.attachers, undefined);
-        st.equal(ware.fns.length, 2);
 
         st.end();
     });
@@ -88,6 +108,32 @@ test('AttachWare()', function (t) {
         st.deepEqual(order, [1, 2]);
 
         st.end();
+    });
+
+    t.test('should accept multiple attachers in a matrix', function (st) {
+        var ware = new AttachWare();
+        var order = [];
+
+        st.plan(7);
+
+        ware.use([
+            [function (context, $1, $2) {
+                st.equal(context, ware);
+                st.equal($1, 1);
+                st.equal($2, 2);
+
+                order.push(1);
+            }, 1, 2],
+            [function (context, $1, $2) {
+                st.equal(context, ware);
+                st.equal($1, 3);
+                st.equal($2, 4);
+
+                order.push(2);
+            }, 3, 4]
+        ]);
+
+        st.deepEqual(order, [1, 2]);
     });
 
     t.test('should attach a by `attach` returned middleware', function (st) {
