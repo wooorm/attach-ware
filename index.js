@@ -37,6 +37,8 @@
 
 'use strict';
 
+/* eslint-env commonjs */
+
 var slice = [].slice;
 var unherit = require('unherit');
 
@@ -67,7 +69,7 @@ function patch(Ware) {
      *
      * @memberof {AttachWare}
      * @this {AttachWare}
-     * @param {Function} attach
+     * @param {Function} attach - Attacher.
      * @return {AttachWare} - `this`.
      */
     function use(attach) {
