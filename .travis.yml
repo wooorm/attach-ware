@@ -3,6 +3,23 @@ node_js:
 - '0.10'
 - '0.11'
 - '0.12'
-- iojs
+- '4.0'
+- '5.0'
 after_script: npm install codecov.io && cat ./coverage/lcov.info | codecov
 sudo: false
+deploy:
+  - provider: npm
+    email: tituswormer@gmail.com
+    api_key:
+      secure: PktJb2jZoxkGJQsvMf2riAaGp7liZpd/8172yR+BG+Kv0d1YEjNKR4Khw0hJSfNquSUbIUDoCDxTojksboxOt96RW2xOAvVAVoBRLhCc8t2/vXzUjrSxwr2mWbdoDQ3pBaEQ48KV1pyOX+aHmAQ7up30/9HVdIQeQmLSP0GF4L1iISvJ15QmZmWU7SHKB6x+M8Cqbk8zP4lfmc8ZN3Yche0KUFHzSHMDT0cAqadcDnb+KYa4RxmBYla8b3jcABoqw57959T0zLHupGeuB5oFcfNfj98wMbCEGM4/bs6lltNv3XOlRyMaIvJTYyv1CH7FjdTZ2mpwd9Cv3TzQwWiYf92uxXDiMWfkNWgGv0FbAOk1f0k9e6z6UiKdyfI7doaCNYxoa6rfw0/4UBlocXfx6sG7O92NhCSakzok9Z9DE6GL2XSaRWiu4OQYHt+Cf2yBGpM39fFqOtirjwv4OYnfjFOXgwVWTJT1mHUShrJDjegiUmm6p+APLomdwKEHZACaD6yX9xoWd8qP3tekZHqskfa/fcsMF0Ux24L0sdcTwlqCqhTt0UjSANB5PVKBwgGVuj/oPMeNTOoPsdQ2nuuc1EO+yaBnvcA7RPLddoQfgFRc/IhywTFqPLTYawomDe+i2ppJZ/u6i3hjQcr2IosyQxei6y3WCu8CrhAbKoNhKHM=
+    on:
+      tags: true
+      node: '5.0'
+  - provider: releases
+    api_key:
+      secure: j1gv7rcxvN8k9G4rCVxbN6ROOe3pWdAdtCXcbS+QWLy7LJG2jXBbQfLfFjF05SvqF4o9tQhPfxNZt+HCr/3mo+jb7Y2uj10S7MSUZfFiQAEyX9CEpIxANB0xqCICIg0mpF/xBIw8pojXrg8VKTODrldt1wPkhSBf+o4OCzzEGj82wCaDrl3TsKfE3FghZjCfVnivIi2ca84TCIVfJANxBJSZEz/FcLUE5DZWS9qjI37TGE9QZFsyms0SfUIVSkTBQsECIbFi0ndu0fBiSz4kTAAuCmytLn83zr4GPORP9bvkpMi/3SPo8Ym63LEc/uThQXfk+wsO1BTRuh4mD2DOA3P5UpAbX9G+UV4LmmIz0EiG08V+DgBPgQ/mjnMgDSUa0WbbU4Agbti+GXZ+xqVd6KZzmgLaAAuymvZXqfadOvdx9vAZtccqqdDvRLHQlXF1okhTBlSmJZC3y6V22ndbsjBCgPYKj8DK7EolB9EeAK4TGNqjP5LpKtdp92NzWMv23T5Kvt8sscrlWofLM4zP8Qzndd/AbpvIgCXBLSaUQo2H2XfGxtO6LwQBkf/2/HsPNrurRskbx3wCD1Z0os9VacKO6p+98ufF6T5PoeBQSL1AFH7RLt+LpD7sdrpZ5ro5KlRK8j7/MaZgrFj8Kkkkl5V1QRs3SeEiP9O+KL3N5hM=
+    file:
+      - "remark.js"
+      - "remark.min.js"
+    on:
+      tags: true
