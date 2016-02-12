@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+1.1.1 / 2016-02-12
+==================
+
+*   Fix deploy target ([`60e436a`](https://github.com/wooorm/attach-ware/commit/60e436a))
+
 1.1.0 / 2016-02-12
 ==================
 
