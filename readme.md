@@ -4,14 +4,11 @@ Middleware with configuration.
 
 ## Installation
 
-[npm][npm-install]:
+[npm][]:
 
 ```bash
 npm install attach-ware
 ```
-
-**attach-ware** is also available as an AMD, CommonJS, and globals
-module, [uncompressed and compressed][releases].
 
 ## Usage
 
@@ -76,24 +73,23 @@ Create configurable middleware.  Works just like the given
 
 ### `AttachWare#use(attacher[, input...])`
 
-**Signatures**:
+###### Signatures
 
 *   `attachWare.use(attacher[, input...])`;
 *   `attachWare.use(attachers[, input...])`;
 *   `attachWare.use(list)`;
 *   `attachWare.use(matrix)`.
 
-**Parameters**:
+###### Parameters
 
 *   `attacher` (`Function`) — One attacher.
-
-*   `attachers` (`Array.<Function>`) — List where each value is an
-    `attacher`;
-
-*   `list` (`Array`) — List where the first value is an `attacher`,
-    and further values are `input`;
-
-*   `matrix` (`Array`) — Matrix where each entry is a `list`.
+*   `attachers` (`Array.<Function>`)
+    — List where each value is an `attacher`;
+*   `list` (`Array`)
+    — List where the first value is an `attacher`, and further values
+    are `input`;
+*   `matrix` (`Array`)
+    — Matrix where each entry is a `list`.
 
 Invokes `attacher` with [`context`][context] and all `input`.
 
@@ -121,9 +117,7 @@ itself is used.
 
 [codecov]: https://codecov.io/github/wooorm/attach-ware
 
-[npm-install]: https://docs.npmjs.com/cli/install
-
-[releases]: https://github.com/wooorm/attach-ware/releases
+[npm]: https://docs.npmjs.com/cli/install
 
 [license]: LICENSE
 
