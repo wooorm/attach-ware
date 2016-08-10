@@ -2,6 +2,11 @@
 
 <!--lint disable no-multiple-toplevel-headings-->
 
+2.0.1 / 2016-08-10
+==================
+
+*   Refactor code-style to use `xo` ([`afc1b80`](https://github.com/wooorm/attach-ware/commit/afc1b80))
+
 2.0.0 / 2016-02-12
 ==================
 
