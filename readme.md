@@ -100,7 +100,7 @@ invoked like normal middleware.
 
 ### `AttachWare#context`
 
-The first argument for `attach`ers. When this is falsey, the instance
+The first argument for `attach`ers.  When this is falsey, the instance
 itself is used.
 
 ## License
