@@ -16,12 +16,12 @@ npm install attach-ware
 
 ```js
 module.exports = function (ctx, options) {
-    if (!options.condition) return;
+  return options.condition ? transform : null;
 
-    return function (req, res, next) {
-        res.x = 'hello';
-        next();
-    };
+  function transform(req, res, next) {
+    res.x = 'hello';
+    next();
+  }
 }
 ```
 
@@ -29,12 +29,12 @@ module.exports = function (ctx, options) {
 
 ```js
 module.exports = function (ctx, options) {
-    if (!options.condition) return;
+  return options.condition ? transform : null;
 
-    return function (req, res, next) {
-        res.y = 'world';
-        next();
-    };
+  function transform(req, res, next) {
+    res.y = 'world';
+    next();
+  }
 }
 ```
 
@@ -42,16 +42,17 @@ module.exports = function (ctx, options) {
 
 ```js
 var ware = require('attach-ware')(require('ware'));
-var x = require('./x.js');
-var y = require('./y.js');
+var x = require('./x');
+var y = require('./y');
 
 var middleware = attachWare()
-    .use(x, {'condition': true})
-    .use(y, {'condition': false})
-    .run({}, {}, function (err, req, res) {
-        console.log(res.x); // "hello"
-        console.log(res.y); // undefined
-    });
+  .use(x, {condition: true})
+  .use(y, {condition: false});
+
+middleware.run({}, {}, function (err, req, res) {
+  console.log(res.x); // "hello"
+  console.log(res.y); // undefined
+});
 ```
 
 ## API
@@ -60,11 +61,13 @@ var middleware = attachWare()
 
 Create a new `AttachWare` based on the given middleware constructor.
 
-**Parameters**:
+###### Parameters
 
 *   `Ware` ([`Ware`][ware]).
 
-**Returns**: `Function`.
+###### Returns
+
+`Function`.
 
 ### `AttachWare()`
 
