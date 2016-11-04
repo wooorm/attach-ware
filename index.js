@@ -1,11 +1,3 @@
-/**
- * @author Titus Wormer
- * @copyright 2015 Titus Wormer
- * @license MIT
- * @module attach-ware
- * @fileoverview Middleware with configuration.
- */
-
 'use strict';
 
 /* Dependencies. */
