@@ -63,7 +63,7 @@ Create a new `AttachWare` based on the given middleware constructor.
 
 ###### Parameters
 
-*   `Ware` ([`Ware`][ware]).
+*   `Ware` ([`Ware`][ware])
 
 ###### Returns
 
@@ -78,21 +78,21 @@ Create configurable middleware.  Works just like the given
 
 ###### Signatures
 
-*   `attachWare.use(attacher[, input...])`;
-*   `attachWare.use(attachers[, input...])`;
-*   `attachWare.use(list)`;
-*   `attachWare.use(matrix)`.
+*   `attachWare.use(attacher[, input...])`
+*   `attachWare.use(attachers[, input...])`
+*   `attachWare.use(list)`
+*   `attachWare.use(matrix)`
 
 ###### Parameters
 
-*   `attacher` (`Function`) — One attacher.
+*   `attacher` (`Function`) — One attacher
 *   `attachers` (`Array.<Function>`)
-    — List where each value is an `attacher`;
+    — List where each value is an `attacher`
 *   `list` (`Array`)
     — List where the first value is an `attacher`, and further values
-    are `input`;
+    are `input`
 *   `matrix` (`Array`)
-    — Matrix where each entry is a `list`.
+    — Matrix where each entry is a `list`
 
 Invokes `attacher` with [`context`][context] and all `input`.
 
