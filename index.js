@@ -1,21 +1,13 @@
 'use strict';
 
-/* Dependencies. */
 var unherit = require('unherit');
 
-/* Expose. */
 module.exports = patch;
 
-/* Methods. */
 var slice = [].slice;
 
-/**
- * Clone `Ware` without affecting the super-class and
- * turn it into configurable middleware.
- *
- * @param {Function} Ware - Ware-like constructor.
- * @return {Function} AttachWare - Configurable middleware.
- */
+/* Clone `Ware` without affecting the super-class and
+ * turn it into configurable middleware. */
 function patch(Ware) {
   var AttachWare = unherit(Ware);
   var useFn = Ware.prototype.use;
@@ -26,14 +18,7 @@ function patch(Ware) {
     return new AttachWare(fn);
   };
 
-  /**
-   * Attach configurable middleware.
-   *
-   * @memberof {AttachWare}
-   * @this {AttachWare}
-   * @param {Function} attach - Attacher.
-   * @return {AttachWare} - `this`.
-   */
+  /* Attach configurable middleware. */
   function use(attach) {
     var self = this;
     var params = slice.call(arguments, 1);
