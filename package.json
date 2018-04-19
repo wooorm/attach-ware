@@ -10,7 +10,7 @@
     "config",
     "configuration"
   ],
-  "repository": "https://github.com/wooorm/attach-ware",
+  "repository": "wooorm/attach-ware",
   "bugs": "https://github.com/wooorm/attach-ware/issues",
   "author": "Titus Wormer <tituswormer@gmail.com> (http://wooorm.com)",
   "contributors": [
