@@ -15,12 +15,14 @@ npm install attach-ware
 `x.js`:
 
 ```js
-module.exports = function (ctx, options) {
-  return options.condition ? transform : null;
+module.exports = x
+
+function x(ctx, options) {
+  return options.condition ? transform : null
 
   function transform(req, res, next) {
-    res.x = 'hello';
-    next();
+    res.x = 'hello'
+    next()
   }
 }
 ```
@@ -28,12 +30,14 @@ module.exports = function (ctx, options) {
 `y.js`:
 
 ```js
-module.exports = function (ctx, options) {
-  return options.condition ? transform : null;
+module.exports = y
+
+function y(ctx, options) {
+  return options.condition ? transform : null
 
   function transform(req, res, next) {
-    res.y = 'world';
-    next();
+    res.y = 'world'
+    next()
   }
 }
 ```
@@ -41,18 +45,21 @@ module.exports = function (ctx, options) {
 `index.js`:
 
 ```js
-var ware = require('attach-ware')(require('ware'));
-var x = require('./x');
-var y = require('./y');
+var ware = require('attach-ware')(require('ware'))
+var x = require('./x')
+var y = require('./y')
 
-var middleware = attachWare()
+var middleware = ware()
   .use(x, {condition: true})
-  .use(y, {condition: false});
+  .use(y, {condition: false})
 
-middleware.run({}, {}, function (err, req, res) {
-  console.log(res.x); // "hello"
-  console.log(res.y); // undefined
-});
+middleware.run({}, {}, done)
+
+function done(err, req, res) {
+  if (err) throw err
+  console.log(res.x) // => "hello"
+  console.log(res.y) // => undefined
+}
 ```
 
 ## API
