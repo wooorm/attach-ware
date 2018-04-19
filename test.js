@@ -1,14 +1,11 @@
 'use strict';
 
-/* Dependencies. */
 var test = require('tape');
 var Ware = require('ware');
-var AttachWare = require('./')(Ware);
+var AttachWare = require('.')(Ware);
 
-/* Methods */
 var noop = Function.prototype;
 
-/* Tests. */
 test('AttachWare()', function (t) {
   t.test('should accept an attacher', function (st) {
     var ware = new AttachWare().use(noop);
