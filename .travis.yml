@@ -1,10 +1,11 @@
 language: node_js
 node_js:
-- '4.0'
-- '8.0'
+- lts/boron
+- node
 after_script: bash <(curl -s https://codecov.io/bash)
 deploy:
   provider: releases
+  skip_cleanup: true
   api_key:
     secure: j1gv7rcxvN8k9G4rCVxbN6ROOe3pWdAdtCXcbS+QWLy7LJG2jXBbQfLfFjF05SvqF4o9tQhPfxNZt+HCr/3mo+jb7Y2uj10S7MSUZfFiQAEyX9CEpIxANB0xqCICIg0mpF/xBIw8pojXrg8VKTODrldt1wPkhSBf+o4OCzzEGj82wCaDrl3TsKfE3FghZjCfVnivIi2ca84TCIVfJANxBJSZEz/FcLUE5DZWS9qjI37TGE9QZFsyms0SfUIVSkTBQsECIbFi0ndu0fBiSz4kTAAuCmytLn83zr4GPORP9bvkpMi/3SPo8Ym63LEc/uThQXfk+wsO1BTRuh4mD2DOA3P5UpAbX9G+UV4LmmIz0EiG08V+DgBPgQ/mjnMgDSUa0WbbU4Agbti+GXZ+xqVd6KZzmgLaAAuymvZXqfadOvdx9vAZtccqqdDvRLHQlXF1okhTBlSmJZC3y6V22ndbsjBCgPYKj8DK7EolB9EeAK4TGNqjP5LpKtdp92NzWMv23T5Kvt8sscrlWofLM4zP8Qzndd/AbpvIgCXBLSaUQo2H2XfGxtO6LwQBkf/2/HsPNrurRskbx3wCD1Z0os9VacKO6p+98ufF6T5PoeBQSL1AFH7RLt+LpD7sdrpZ5ro5KlRK8j7/MaZgrFj8Kkkkl5V1QRs3SeEiP9O+KL3N5hM=
   file:
@@ -12,4 +13,3 @@ deploy:
     - "attach-ware.min.js"
   on:
     tags: true
-    node: '8.0'
