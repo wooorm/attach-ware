@@ -131,7 +131,7 @@ itself is used.
 
 [license]: license
 
-[author]: http://wooorm.com
+[author]: https://wooorm.com
 
 [ware]: https://github.com/segmentio/ware#ware-1
 
