@@ -6,8 +6,8 @@ module.exports = patch
 
 var slice = [].slice
 
-/* Clone `Ware` without affecting the super-class and
- * turn it into configurable middleware. */
+// Clone `Ware` without affecting the super-class and turn it into configurable
+// middleware.
 function patch(Ware) {
   var AttachWare = unherit(Ware)
   var useFn = Ware.prototype.use
@@ -20,7 +20,7 @@ function patch(Ware) {
     return new AttachWare(fn)
   }
 
-  /* Attach configurable middleware. */
+  // Attach configurable middleware.
   function use(attach) {
     var self = this
     var params = slice.call(arguments, 1)
@@ -28,13 +28,13 @@ function patch(Ware) {
     var length
     var fn
 
-    /* Multiple attachers. */
+    // Multiple attachers.
     if ('length' in attach && typeof attach !== 'function') {
       index = -1
       length = attach.length
 
-      /* So, `attach[0]` is a function, meaning its
-       * either a list of `attachers` or its a `list`. */
+      // So, `attach[0]` is a function, meaning its either a list of `attachers`
+      // or its a `list`.
       if (typeof attach[0] === 'function') {
         if (
           attach[1] !== null &&
@@ -56,18 +56,17 @@ function patch(Ware) {
       return self
     }
 
-    /* Single attacher. */
+    // Single attacher.
     fn = attach.apply(null, [self.context || self].concat(params))
 
-    /* Store the attacher to not break `new Ware(otherWare)`
-     * functionality. */
+    // Store the attacher to not break `new Ware(otherWare)` functionality.
     if (!self.attachers) {
       self.attachers = []
     }
 
     self.attachers.push(attach)
 
-    /* Pass `fn` to the original `Ware#use()`. */
+    // Pass `fn` to the original `Ware#use()`.
     if (fn) {
       useFn.call(self, fn)
     }
