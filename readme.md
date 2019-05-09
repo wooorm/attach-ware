@@ -1,4 +1,9 @@
-# attach-ware [![Build Status][travis-badge]][travis] [![Coverage Status][codecov-badge]][codecov]
+# attach-ware
+
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][size-badge]][size]
 
 Middleware with configuration.
 
@@ -119,13 +124,21 @@ itself is used.
 
 <!-- Definitions -->
 
-[travis-badge]: https://img.shields.io/travis/wooorm/attach-ware.svg
+[build-badge]: https://img.shields.io/travis/wooorm/attach-ware.svg
 
-[travis]: https://travis-ci.org/wooorm/attach-ware
+[build]: https://travis-ci.org/wooorm/attach-ware
 
-[codecov-badge]: https://img.shields.io/codecov/c/github/wooorm/attach-ware.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/wooorm/attach-ware.svg
 
-[codecov]: https://codecov.io/github/wooorm/attach-ware
+[coverage]: https://codecov.io/github/wooorm/attach-ware
+
+[downloads-badge]: https://img.shields.io/npm/dm/attach-ware.svg
+
+[downloads]: https://www.npmjs.com/package/attach-ware
+
+[size-badge]: https://img.shields.io/bundlephobia/minzip/attach-ware.svg
+
+[size]: https://bundlephobia.com/result?p=attach-ware
 
 [npm]: https://docs.npmjs.com/cli/install
 
