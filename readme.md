@@ -7,15 +7,15 @@
 
 Middleware with configuration.
 
-## Installation
+## Install
 
 [npm][]:
 
-```bash
+```sh
 npm install attach-ware
 ```
 
-## Usage
+## Use
 
 `x.js`:
 
@@ -83,8 +83,8 @@ Create a new `AttachWare` based on the given middleware constructor.
 
 ### `AttachWare()`
 
-Create configurable middleware.  Works just like the given
-[`Ware`][ware].
+Create configurable middleware.
+Works just like the given [`Ware`][ware].
 
 ### `AttachWare#use(attacher[, input...])`
 
@@ -110,13 +110,13 @@ Invokes `attacher` with [`context`][context] and all `input`.
 
 If `attacher` returns another function (`fn`, which can be synchronous,
 asynchronous, or a generator function), that function is [added to the
-middleware][ware-use], and will be invoked when [`run()`][ware-run] is
-invoked like normal middleware.
+middleware][ware-use], and will be invoked when [`run()`][ware-run] is invoked
+like normal middleware.
 
 ### `AttachWare#context`
 
-The first argument for `attach`ers.  When this is falsey, the instance
-itself is used.
+The first argument for `attach`ers.
+When this is falsey, the instance itself is used.
 
 ## License
 
