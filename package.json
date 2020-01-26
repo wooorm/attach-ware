@@ -12,6 +12,10 @@
   ],
   "repository": "wooorm/attach-ware",
   "bugs": "https://github.com/wooorm/attach-ware/issues",
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/wooorm"
+  },
   "author": "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)",
   "contributors": [
     "Titus Wormer <tituswormer@gmail.com> (https://wooorm.com)"
