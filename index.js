@@ -23,7 +23,7 @@ function patch(Ware) {
   // Attach configurable middleware.
   function use(attach) {
     var self = this
-    var params = slice.call(arguments, 1)
+    var parameters = slice.call(arguments, 1)
     var index
     var length
     var fn
@@ -44,7 +44,7 @@ function patch(Ware) {
           self.use.apply(self, attach)
         } else {
           while (++index < length) {
-            self.use.apply(self, [attach[index]].concat(params))
+            self.use.apply(self, [attach[index]].concat(parameters))
           }
         }
       } else {
@@ -57,7 +57,7 @@ function patch(Ware) {
     }
 
     // Single attacher.
-    fn = attach.apply(null, [self.context || self].concat(params))
+    fn = attach.apply(null, [self.context || self].concat(parameters))
 
     // Store the attacher to not break `new Ware(otherWare)` functionality.
     if (!self.attachers) {
