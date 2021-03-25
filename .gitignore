@@ -1,8 +1,0 @@
-.DS_Store
-*.log
-.nyc_output/
-coverage/
-node_modules/
-attach-ware.js
-attach-ware.min.js
-yarn.lock
